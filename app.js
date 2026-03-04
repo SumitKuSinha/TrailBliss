@@ -24,7 +24,7 @@ async function main(){
 
 //home route
 app.get("/" , (req , res)=>{
-    const x = `<a href="http://localhost:8080/listings">Listings<a>`
+    const x = `<a href="http://localhost:8080/listings"><button>Listings</button><a>`
     res.send(x);
 })
 
@@ -53,7 +53,6 @@ const newListing = new Listing(req.body.listing);
 await newListing.save();
 res.redirect("/listings");
 });
-
 
 //starting the server
 app.listen(8080 , ()=>{

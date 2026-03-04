@@ -6,13 +6,17 @@
     <title>All listings</title>
 </head>
 <body>
-     <h3>All Listings</h3>
+    <h3>All Listings</h3>
+  
+       <button>Add new place</button>
+    <br>
      <ul>
     <%for(listing of allListings){%>
         <li><a href = "/listings/<%=listing._id%>"><%= listing.title %></a></li>
     <%}%>
     <form method ="GET" action="/listings/new">
-        <button>Add new place</button>
+
+      
     </form>
 </ul>
 </body>
