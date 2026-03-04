@@ -2,7 +2,11 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const Listing = require("./models/listing.js")
+const Listing = require("./models/listing.js");
+const path = require("path");
+
+app.set("views" , path.join(__dirname , "views"));
+app.set("view engine" , "ejs");
 
 //mongoose connection 
 const mongo_url = "mongodb://127.0.0.1:27017/trailbliss";
@@ -22,19 +26,11 @@ app.get("/" , (req , res)=>{
     res.send("working....");
 })
 
-//test listing route
-app.get("/testinglist" , async (req, res)=>{
-    let sample = new Listing({
-      title:"My new villa",
-      description : "By the beach",
-      price : 1220,
-      location : "calangute , Goa",
-      country : "India"
-    });
-    await sample.save();
-    console.log("Data is saved...");
-    res.send("Data is saved");
-});
+//list all listings
+app.get("/listings", async (req, res)=>{
+    const allListings = await Listing.find({});
+    res.render("listings/index.ejs" , {allListings});
+})
 
 
 //starting the server
