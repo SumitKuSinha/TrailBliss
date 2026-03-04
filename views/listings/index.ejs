@@ -11,6 +11,9 @@
     <%for(listing of allListings){%>
         <li><a href = "/listings/<%=listing._id%>"><%= listing.title %></a></li>
     <%}%>
+    <form method ="GET" action="/listings/new">
+        <button>Add new place</button>
+    </form>
 </ul>
 </body>
 </html>
