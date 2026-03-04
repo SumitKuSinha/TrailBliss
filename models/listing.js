@@ -10,11 +10,15 @@ const listingSchema = new schema({
   description : {
     type: String
   }, 
-  image : {
-    type : String,
-    default : "https://cdn.pixabay.com/photo/2025/12/05/19/54/clouds-9997332_1280.png",
-    set : (v) => v === "" ? "https://cdn.pixabay.com/photo/2025/12/05/19/54/clouds-9997332_1280.png" : v  
+image: {
+  filename: {
+    type: String
   },
+  url: {
+    type: String,
+    default: "https://cdn.pixabay.com/photo/2025/12/05/19/54/clouds-9997332_1280.png"
+  }
+},
   price : {
     type : Number
   }, 
