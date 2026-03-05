@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All listings</title>
 </head>
+
 <body>
     <h3>All Listings</h3>
-  
-       <button>Add new place</button>
-    <br>
-     <ul>
-    <%for(listing of allListings){%>
-        <li><a href = "/listings/<%=listing._id%>"><%= listing.title %></a></li>
-    <%}%>
-    <form method ="GET" action="/listings/new">
 
-      
-    </form>
-</ul>
+    <button>Add new place</button>
+    <br>
+    <ul>
+        <%for(listing of allListings){%>
+            <li><a href="/listings/<%=listing._id%>">
+                    <%= listing.title %>
+                </a></li>
+            <%}%>
+                <form method="GET" action="/listings/new">
+
+
+                </form>
+    </ul>
 </body>
+
 </html>
