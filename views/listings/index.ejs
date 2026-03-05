@@ -10,7 +10,11 @@
 <body>
     <h3>All Listings</h3>
 
-    <button>Add new place</button>
+    <form method="GET" action="/listings/new">
+        <button>Add new place</button>
+
+    </form>
+
     <br>
     <ul>
         <%for(listing of allListings){%>
@@ -18,10 +22,7 @@
                     <%= listing.title %>
                 </a></li>
             <%}%>
-                <form method="GET" action="/listings/new">
 
-
-                </form>
     </ul>
 </body>
 

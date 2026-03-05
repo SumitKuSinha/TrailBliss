@@ -70,6 +70,13 @@ app.put("/listings/:id" , async(req,res)=>{
     res.redirect(`/listings/${id}`);
 })
 
+//Delete route
+app.delete("/listings/:id" , async(req,res)=>{
+  let {id} = req.params;
+  let deleted = await Listing.findByIdAndDelete(id);
+  console.log(deleted);
+  res.redirect("/listings");
+});
 //starting the server
 app.listen(8080 , ()=>{
     console.log("Sereve is started at http://localhost:8080");
